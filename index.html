@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    * {
+      padding: 0;
+      margin: auto;
+      box-sizing: border-box;
+    }
+
+    body {
+      /* background-color: hsl(216, 12%, 8%); */
+    }
+
+    .thank-you-block {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30%;
+      background-color: hsl(213, 19%, 18%);
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .feedback {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30%;
+      background-color: hsl(213, 19%, 18%);
+      border-radius: 15px;
+      padding: 20px;
+    }
+
+    .feedback h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .feedback p {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 15px;
+      color: hsl(217, 12%, 63%);
+    }
+
+    .submitButton button {
+      padding: 10px 15px;
+      background-color: hsl(25, 92%, 54%);
+      color: white;
+      font-weight: 700;
+      border: none;
+      border-radius: 20px;
+      width: 100%;
+      cursor: pointer;
+      margin-top: 25px;
+    }
+
+    .submitButton button:hover {
+      background-color: hsl(0, 0%, 100%);
+      color: hsl(25, 92%, 54%);
+    }
+
+    .submitButton button:active {
+      background-color: hsl(0, 0%, 100%);
+    }
+
+    .icon-start img {
+      background-color: hsl(216, 6%, 38%);
+      border-radius: 50%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    ul.rating-list {
+      list-style: none;
+      display: flex;
+      width: 100%;
+      text-align: center;
+    }
+
+    ul.rating-list li {
+      margin: 10px 0;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      align-items: center;
+      text-align: center;
+      margin-right: 21px;
+      display: inline-flex;
+      justify-content: center;
+      background-color: hsl(216, 6%, 38%);
+      color: hsl(217, 12%, 63%);
+      cursor: pointer;
+
+    }
+
+    ul.rating-list li:nth-child(4) {
+      background-color: hsl(216, 12%, 54%);
+      color: #fff;
+    }
+
+    ul.rating-list li:last-child {
+      background-color: hsl(25, 97%, 53%);
+      color: white;
+    }
+
+    .thanks-img {
+      margin: 20px 0;
+    }
+
+    .thank-you-block span {
+      color: hsl(25, 97%, 53%);
+      background-color: hsl(210, 5%, 33%);
+      border-radius: 20px;
+      padding: 12px;
+    }
+
+    .thank-you-block h4 {
+      color: hsl(0, 0%, 100%);
+      font-weight: 700;
+      margin: 20px 0;
+    }
+
+    .thank-you-block p {
+      color: hsl(217, 12%, 63%);
+
+    }
+    /* media query */
+    @media screen and (max-width:576px) {
+        .feedback, .thank-you-block {
+          width: 84%;
+        }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Rating state start -->
+  <section class="feedback">
+    <div class="icon-start">
+      <img src="images/icon-star.svg" alt="">
+    </div>
+    <h2> How did we do </h2>
+    <p> Please let us know how we did with your support <br> request. All feedback is appreciated
+      to help us <br> improve our offering!</p>
+    <div class="rating">
+      <ul class="rating-list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </div>
+    <div class="submitButton">
+      <button id="submitFeedback"> SUBMIT
+      </button>
+    </div>
+
+  </section>
+
+  <!-- Rating state end -->
+
+  <!-- Thank you state start -->
+
+  <section class="thank-you-block" style="display: none;">
+    <div class="thanks-img">
+      <img src="images/illustration-thank-you.svg" alt="">
+    </div>
+    <span> You selected 4 out of 5
+    </span>
+    <h4> Thank you! </h4>
+    <p> We appreciate you taking the time to give a rating. If you ever need more support,
+      don’t hesitate to <br> get in touch!
+    </p>
+  </section>
+
+  <!-- Thank you state end -->
+
+
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#submitFeedback").click(function () {
+        $(".feedback").css("display", "none");
+        $(".thank-you-block").css("display", "block");
+      })
+    })
+  </script>
+</body>
+
+</html>
